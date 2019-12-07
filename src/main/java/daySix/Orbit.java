@@ -20,7 +20,7 @@ public class Orbit {
             String[] orb = line.split("\\)");
             String a = orb[0];
             String orbitA = orb[1];
-            List<String> test = orbits.computeIfAbsent(a, key -> new ArrayList());
+            List<String> test = orbits.computeIfAbsent(a, key -> new ArrayList<>());
             test.add(orbitA);
         }
         System.out.println(getAmountOrbits(orbits, "COM", 0)); //Part 1
@@ -43,9 +43,9 @@ public class Orbit {
 
     }
 
-    private static int getAmountOrbits(Map<String, List<String>> orbits, String orbit, int amount) {
+    static int getAmountOrbits(Map<String, List<String>> orbits, String orbit, int amount) {
         int newAmount = amount;
-        List<String> children = orbits.computeIfAbsent(orbit, key -> new ArrayList());
+        List<String> children = orbits.computeIfAbsent(orbit, key -> new ArrayList<>());
         if (!children.isEmpty()) {
             for (String child : children) {
                 newAmount += getAmountOrbits(orbits, child, amount + 1);
@@ -54,13 +54,13 @@ public class Orbit {
         return newAmount;
     }
 
-    private static List<String> searchOrbit(Map<String, List<String>> orbits, String current, String orbit, List<String> path) {
+    static List<String> searchOrbit(Map<String, List<String>> orbits, String current, String orbit, List<String> path) {
         List<String> currentPath = new ArrayList<>(path);
         if (current.equals(orbit)) {
             return path;
         } else {
             currentPath.add(current);
-            List<String> children = orbits.computeIfAbsent(current, key -> new ArrayList());
+            List<String> children = orbits.computeIfAbsent(current, key -> new ArrayList<>());
             if (!children.isEmpty()) {
                 for (String child : children) {
                     List<String> tempPath = searchOrbit(orbits, child, orbit, currentPath);
