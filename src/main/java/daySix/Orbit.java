@@ -7,7 +7,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.concurrent.CopyOnWriteArrayList;
 
 public class Orbit {
 
@@ -24,12 +23,10 @@ public class Orbit {
             List<String> test = orbits.computeIfAbsent(a, key -> new ArrayList());
             test.add(orbitA);
         }
-        //System.out.println(getAmountOrbits(orbits, "COM", 0)); //Part 1
+        System.out.println(getAmountOrbits(orbits, "COM", 0)); //Part 1
         List<String> path = new ArrayList<>();
         List<String> pathToMe = searchOrbit(orbits, "COM", "YOU", path);
         List<String> pathToSanta = searchOrbit(orbits, "COM", "SAN", path);
-        //System.out.println(pathToMe);
-        //System.out.println(pathToSanta);
         path.clear();
         for (String elem : pathToMe) {
             if (!pathToSanta.contains(elem)) {
@@ -41,7 +38,6 @@ public class Orbit {
                 path.add(elem);
             }
         }
-        //System.out.println(path);
         System.out.println(path.size());
 
 
