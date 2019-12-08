@@ -21,15 +21,24 @@ public class BiosPass {
             layers.add(pix.substring(i, i + sizeLayer));
             i += sizeLayer;
         }
+
+        Integer[] colors = new Integer[sizeLayer];
+
         int[][] amountZeroOneTwo = new int[layers.size()][3];
         for (int i = 0; i < layers.size(); i++) {
             for (int j = 0; j < sizeLayer; j++) {
                 switch (layers.get(i).charAt(j)) {
                     case '0':
                         amountZeroOneTwo[i][0]++;
+                        if (colors[j] == null) {
+                            colors[j] = 0;
+                        }
                         break;
                     case '1':
                         amountZeroOneTwo[i][1]++;
+                        if (colors[j] == null) {
+                            colors[j] = 1;
+                        }
                         break;
                     case '2':
                         amountZeroOneTwo[i][2]++;
@@ -46,6 +55,19 @@ public class BiosPass {
                 index = i;
             }
         }
-        System.out.println("Answer: " + amountZeroOneTwo[index][1] * amountZeroOneTwo[index][2]);
+        System.out.println("Answer (part one): " + amountZeroOneTwo[index][1] * amountZeroOneTwo[index][2]);
+
+        System.out.println("Password: ");
+        for (int i = 0; i < heightLayer; i++) {
+            for (int j = 0; j < widthLayer; j++) {
+                if (colors[i * widthLayer + j] > 0) {
+                    System.out.print(colors[i * widthLayer + j]);
+                } else {
+                    System.out.print(" ");
+                }
+            }
+            System.out.println();
+        }
+
     }
 }
