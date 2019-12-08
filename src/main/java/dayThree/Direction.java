@@ -1,3 +1,5 @@
+package dayThree;
+
 class Direction {
 
     private char direction;
@@ -5,7 +7,7 @@ class Direction {
 
     @Override
     public String toString() {
-        return "Direction{" +
+        return "dayTree.Direction{" +
                 "direction=" + direction +
                 ", distance=" + distance +
                 '}';
@@ -15,16 +17,8 @@ class Direction {
         return direction;
     }
 
-    public void setDirection(char direction) {
-        this.direction = direction;
-    }
-
     public int getDistance() {
         return distance;
-    }
-
-    public void setDistance(int distance) {
-        this.distance = distance;
     }
 
     Direction(char direction, int distance) {

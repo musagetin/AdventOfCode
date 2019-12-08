@@ -1,6 +1,6 @@
 package daySix;
 
-import java.io.IOException;
+import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
@@ -10,9 +10,9 @@ import java.util.Map;
 
 public class Orbit {
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws Exception {
 
-        List<String> lines = Files.readAllLines(Paths.get("src/input0601"));
+        List<String> lines = Files.readAllLines(Paths.get(Orbit.class.getResource("/input0601").toURI()), Charset.defaultCharset());
 
         Map<String, List<String>> orbits = new HashMap<>();
 

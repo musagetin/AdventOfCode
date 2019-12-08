@@ -1,4 +1,6 @@
-import java.io.IOException;
+package dayThree;
+
+import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
@@ -6,11 +8,11 @@ import java.util.HashSet;
 import java.util.List;
 
 
-public class DayThreePartOne {
+public class PartOne {
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws Exception {
 
-        List<String> lines = Files.readAllLines(Paths.get("src/input0301"));
+        List<String> lines = Files.readAllLines(Paths.get(PartOne.class.getResource("/input0301").toURI()), Charset.defaultCharset());
 
         List<Direction> directionsForFirstWire = new ArrayList<>();
         List<Direction> directionsForSecondWire = new ArrayList<>();

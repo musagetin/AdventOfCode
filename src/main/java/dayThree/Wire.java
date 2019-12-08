@@ -1,4 +1,4 @@
-
+package dayThree;
 
 import java.util.HashSet;
 
@@ -9,7 +9,7 @@ public class Wire {
 
     @Override
     public String toString() {
-        return "Wire{" +
+        return "dayTree.Wire{" +
                 "node=" + node +
                 ", endX=" + endX +
                 ", endY=" + endY +

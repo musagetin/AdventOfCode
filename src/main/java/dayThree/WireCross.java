@@ -1,3 +1,5 @@
+package dayThree;
+
 import java.util.HashSet;
 
 public class WireCross {
@@ -21,7 +23,7 @@ public class WireCross {
 
     @Override
     public String toString() {
-        return "WireCross{" +
+        return "dayTree.WireCross{" +
                 "node=" + node +
                 ", endX=" + endX +
                 ", endY=" + endY +
@@ -31,10 +33,6 @@ public class WireCross {
 
     public int getEndZ() {
         return endZ;
-    }
-
-    public void setEndZ(int endZ) {
-        this.endZ = endZ;
     }
 
     WireCross(HashSet<Triple> node, int endX, int endY, int endZ) {
