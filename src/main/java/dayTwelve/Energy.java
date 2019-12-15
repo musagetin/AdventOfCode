@@ -13,6 +13,8 @@ public class Energy {
         int[] positionsZ = {5, -2, 11, 1};
         Moon[] moonsZ = makeMoons(positionsZ);
 
+        //part 1
+
         int n = 1000;
         doNStep(moonsX, n);
         doNStep(moonsY, n);
@@ -28,6 +30,42 @@ public class Energy {
         }
 
         System.out.println(sumTotal);
+
+        //part 2
+
+        Moon[] initX = makeMoons(positionsX);
+        Moon[] initY = makeMoons(positionsY);
+        Moon[] initZ = makeMoons(positionsZ);
+
+        int stepsX = getSteps(initX, moonsX);
+        int stepsY = getSteps(initY, moonsY);
+        int stepsZ = getSteps(initZ, moonsZ);
+
+        int arr[] = {stepsX, stepsY, stepsZ};
+        System.out.println(GFG.LCM(arr, arr.length));
+
+
+    }
+
+    public static int getSteps(Moon[] init, Moon[] moons) {
+        int n = 0;
+        boolean eq = false;
+        while (!eq) {
+            doStep(moons);
+            boolean last = true;
+            for (int i = 0; i < moons.length; i++) {
+                if (last & moons[i].equals(init[i]) & moons[i].getVelocity() == 0 ) {
+                    last = true;
+                } else {
+                    last = false;
+                }
+            }
+            if (last) {
+                eq = true;
+            }
+            n++;
+        }
+        return n;
     }
 
     public static void getVelocities(Moon a, Moon b) {
